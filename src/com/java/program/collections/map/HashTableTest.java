@@ -24,7 +24,7 @@ public class HashTableTest {
 		{
 			System.out.println(m.getKey()+" "+m.getValue());
 		}
-		//System.out.println(ht);
+		System.out.println(ht);
 	}
 
 }
