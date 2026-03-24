@@ -17,7 +17,7 @@ public class SecondLargest {
                 }
             }
         }
-        return a[total-1];
+        return a[total-2];
     }
 
     public static void main(String[] args) {
