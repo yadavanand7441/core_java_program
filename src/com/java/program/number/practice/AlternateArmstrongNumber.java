@@ -1,4 +1,4 @@
-package com.java.program.number;
+package com.java.program.number.practice;
 public class AlternateArmstrongNumber
 {
 	public static void alternateArmstrong(int num)

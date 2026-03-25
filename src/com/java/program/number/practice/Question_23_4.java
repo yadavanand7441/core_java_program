@@ -1,4 +1,4 @@
-package com.java.program.number;
+package com.java.program.number.practice;
 
 import java.io.FileOutputStream;
 import java.io.IOException;

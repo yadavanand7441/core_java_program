@@ -1,4 +1,4 @@
-package com.java.program.number;
+package com.java.program.number.practice;
 
 public class Factorial {
 	public static void main(String[] args) {
