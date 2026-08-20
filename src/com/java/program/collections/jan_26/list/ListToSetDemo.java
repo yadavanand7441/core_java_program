@@ -1,4 +1,4 @@
-package com.java.program.collections.jan_26.collections.list;
+package com.java.program.collections.jan_26.list;
 
 import java.util.Arrays;
 import java.util.HashSet;
