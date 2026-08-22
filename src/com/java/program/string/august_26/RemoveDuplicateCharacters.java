@@ -24,7 +24,6 @@ public class RemoveDuplicateCharacters {
 
         System.out.println("===========with new approach============");
         boolean[] visit = new boolean[ch.length];
-        Arrays.sort(ch);
         for(int i=0;i<ch.length-1;i++){
             if(ch[i]==ch[i+1]){
                 visit[i]=true;
@@ -33,7 +32,7 @@ public class RemoveDuplicateCharacters {
             
         }
         for(int i=0;i<ch.length;i++){
-            if(!visit[i]){
+            if(!visit[i] && ch[i]!='0'){
                 System.out.print(ch[i]+" ");
             }
         }
