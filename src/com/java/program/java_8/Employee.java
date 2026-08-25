@@ -1,4 +1,4 @@
-package com.java.program;
+package com.java.program.java_8;
 
 import java.util.ArrayList;
 import java.util.Comparator;

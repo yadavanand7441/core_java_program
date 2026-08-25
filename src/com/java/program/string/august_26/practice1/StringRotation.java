@@ -1,0 +1,12 @@
+package com.java.program.string.august_26.practice1;
+
+public class StringRotation {
+    public static void main(String[] args) {
+
+        String str= "Anand";
+        str= str.toLowerCase();
+
+        String extractedString = str.substring(3) + str.substring(0, 3);
+        System.out.println(extractedString);
+    }
+}
