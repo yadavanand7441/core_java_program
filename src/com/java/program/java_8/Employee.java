@@ -114,5 +114,6 @@ public class Employee {
         System.out.println("========fetch 3 minimum paid salary employee==========");
         Employee minimum3rdPaid = empList.stream().sorted(Comparator.comparing(Employee::getSalary)).skip(2).findFirst().orElse(null);
         System.out.println(minimum3rdPaid);
+
     }
 }
