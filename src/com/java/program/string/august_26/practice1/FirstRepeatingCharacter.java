@@ -8,7 +8,7 @@ public class FirstRepeatingCharacter {
         char[] stringArray = string.toCharArray();
         int count = 0;
         for (int i = 0; i < stringArray.length; i++) {
-            for (int j = 0; j < stringArray.length; j++) {
+            for (int j = i+1; j < stringArray.length; j++) {
                 if (stringArray[i] == stringArray[j]) {
                     count++;
                     if (count == 1){
