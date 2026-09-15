@@ -1,10 +1,11 @@
-package com.java.program.java_8;
+package com.java.program.java_8.practice1;
 
 import java.util.ArrayList;
 import java.util.Comparator;
 import java.util.List;
 import java.util.Map;
 import java.util.stream.Collectors;
+import java.util.stream.Stream;
 
 public class Employee1 {
     private int id;
@@ -83,23 +84,21 @@ public class Employee1 {
         empList.add(new Employee1(102, "Suresh Singh", 60000.00, "Operations", "Kolkata"));
         empList.add(new Employee1(104, "Anjali Mehta", 47000.80, "Sales", "Chennai"));
 
+
         System.out.println("Find Employee with Highest Salary");
-        Employee1 highestSalary = empList.stream().sorted(Comparator.comparing(Employee1::getSalary).reversed()).skip(0).findFirst().orElse(null);
-        System.out.println(highestSalary);
+        Employee1 firstMaxSalary = empList.stream().sorted(Comparator.comparing(Employee1::getSalary).reversed()).skip(0).findFirst().orElse(null);
+        System.out.println(firstMaxSalary);
 
-        System.out.println("Find Employee with Second Highest Salary");
-        Employee1 secondMaxSalary = empList.stream().sorted(Comparator.comparing(Employee1::getSalary).reversed()).skip(1).findFirst().orElse(null);
-        System.out.println(secondMaxSalary);
+        Employee1 secondMax = empList.stream().sorted(Comparator.comparing(Employee1::getSalary).reversed()).skip(1).findFirst().orElse(null);
+        System.out.println(secondMax);
+
         System.out.println("Group Employees by Department");
-        Map<String, List<Employee1>> employeesByDepartment = empList.stream().collect(Collectors.groupingBy(Employee1::getDepartment));
-        employeesByDepartment.forEach((department, empLists) -> System.out.println(department + " : " + empLists));
-
+        Map<String, List<Employee1>> groupedEmployee = empList.stream().collect(Collectors.groupingBy(Employee1::getDepartment));
+        System.out.println(groupedEmployee);
 
         System.out.println("Count Employees by Department");
-        Map<String, Long> employeeCountByDepartment
-                = empList.stream().collect(Collectors.groupingBy(Employee1::getDepartment, Collectors.counting()));
-        System.out.println(employeeCountByDepartment);
-
+        Map<String, Long> countEmployeeByDepartment = empList.stream().collect(Collectors.groupingBy(Employee1::getDepartment, Collectors.counting()));
+        System.out.println(countEmployeeByDepartment);
 
         System.out.println("Sort Employees by Salary");
         empList.stream().sorted(Comparator.comparing(Employee1::getSalary)).forEach(System.out::println);
@@ -108,7 +107,36 @@ public class Employee1 {
         empList.stream().filter(e->e.getSalary()>51000).forEach(System.out::println);
 
         System.out.println("Count total Employees ");
-        long count = empList.stream().map(Employee1::getDepartment).count();
-        System.out.println(count);
+        long empCount = empList.stream().count();
+        System.out.println(empCount);
+
+        System.out.println("tempNameSortedBySalary");
+        empList.stream().sorted(Comparator.comparing(Employee1::getSalary).thenComparing(Employee1::getName)).forEach(System.out::println);
+
+        System.out.println("=====all name only=======");
+        empList.stream().map(Employee1::getName).forEach(System.out::println);
+
+        System.out.println("=====all sorted id only=======");
+        empList.stream().map(Employee1::getId).sorted().forEach(System.out::println);
+
+        System.out.println("========employee with longest name record==========");
+        Employee1 maxLength = empList.stream().max(Comparator.comparing(e -> e.getName().length())).orElse(null);
+        System.out.println(maxLength);
+
+        System.out.println("========sum of all employee salary==========");
+        double totalSum = empList.stream().mapToDouble(Employee1::getSalary).sum();
+        System.out.println(totalSum);
+
+        System.out.println("========average salary ==========");
+        Double averageSalary = empList.stream().collect(Collectors.averagingDouble(Employee1::getSalary));
+        System.out.println(averageSalary);
+
+        System.out.println("========count employee salary > 50k==========");
+        long countEmployee = empList.stream().filter(e -> e.getSalary() > 50000).count();
+        System.out.println(countEmployee);
+
+        System.out.println("========covert salary list to sorted unique list==========");
+        empList.stream().sorted(Comparator.comparing(Employee1::getSalary)).distinct().forEach(System.out::println);
+
     }
 }
