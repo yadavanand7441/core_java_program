@@ -1,0 +1,23 @@
+package com.java.interview.practice1.collection;
+
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.List;
+import java.util.ListIterator;
+
+public class RemoveDuplicatesElements {
+    public static void main(String[] args) {
+
+        List<Integer> integerList = new ArrayList<>(Arrays.asList(12,67,89,34,23,12,89));
+        System.out.println("Duplicate elements in the list:");
+        for (int i=0;i<integerList.size();i++){
+            ListIterator<Integer>listIterator=integerList.listIterator(i+1);
+            while (listIterator.hasNext()){
+                if (integerList.get(i).equals(listIterator.next())){
+                    listIterator.remove();
+                }
+            }
+        }
+        System.out.println("List after duplicate removal: "+integerList);
+    }
+}
